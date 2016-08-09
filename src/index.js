@@ -1,4 +1,2 @@
-const worker = require('./topic/subscriber')
-.then(() => {
-	console.log('yo');
-});
+const worker = require('./topic/subscriber');
+worker();

@@ -1,4 +1,4 @@
-module.exports = function(rabbit) {
+module.exports = function (rabbit) {
   return rabbit.configure({
     // arguments used to establish a connection to a broker
     connection: {
@@ -6,7 +6,7 @@ module.exports = function(rabbit) {
       pass: 'guest',
       server: ['127.0.0.1'],
       port: 5672,
-      vhost: '%2fgate',
+      vhost: '%2f',
       timeout: 1000,
       failAfter: 30,
       retryLimit: 400,
@@ -38,7 +38,7 @@ module.exports = function(rabbit) {
       target: 'test-monitoring2',
       keys: ['2'],
     }],
-  }).then(null, function(err) {
+  }).then(null, (err) => {
     console.error('Could not connect or configure:', err);
   });
 };
