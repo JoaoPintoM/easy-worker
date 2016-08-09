@@ -10,17 +10,8 @@
     "build": "webpack --config config/webpack/dev.js --no_type_check",
     "test": "mocha-webpack 'src/tests/**/test.js' --opts config/test/mocha-webpack.opts",
     "test:watch": "npm run test -- --watch",
-    "dev": "npm run build && nodemon",
+    "dev": "npm run build && npm start",
     "deploy": "better-npm-run deploy"
-  },
-  "betterScripts": {
-    "deploy": {
-      "command": "npm run build:clean && npm run build && echo 'Project built but missing deploy instructions, check package.json'",
-      "env": {
-        "NODE_ENV": "production",
-        "DEBUG": "app:*"
-      }
-    }
   },
   "keywords": [
     "Node",
@@ -31,8 +22,9 @@
   ],
   "author": "Joao Pinto",
   "dependencies": {
+    "eslint-loader": "^1.5.0",
     "lodash": "^4.13.1",
-    "rabbot": "file:rabbot"
+    "rabbot": "^1.0.5"
   },
   "devDependencies": {
     "babel-core": "^6.9.0",

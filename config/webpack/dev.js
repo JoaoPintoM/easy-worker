@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const FlowStatusWebpackPlugin = require('flow-status-webpack-plugin');
 const argv = require('yargs').argv;
 const nodeExternals = require('webpack-node-externals');
 
@@ -37,7 +36,7 @@ const config = {
     preLoaders: [
       {
         test: /\.js$/,
-        loader: 'eslint',
+        loader: 'eslint-loader',
         include: __src
       }
     ],
@@ -72,10 +71,6 @@ if (env === 'development') {
       }
     )
   );
-}
-
-if (env === 'development' && !argv.no_type_check) {
-  config.plugins.push(new FlowStatusWebpackPlugin());
 }
 
 module.exports = config;
